@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulado AWS Certified Cloud Practitioner (CLF-C02)</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="container header-content">
+      <div>
+        <h1>Simulado AWS Cloud Practitioner</h1>
+        <p class="subtitle">Treinamento AWS Cloud Practitioner • 65 Questões Sorteadas</p>
+      </div>
+      <div class="badge" id="bank-status">Carregando banco...</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- TELA INICIAL -->
+    <section id="screen-start" class="card">
+      <h2>Pronto para iniciar o simulado?</h2>
+      <p>O sistema sorteará <strong>65 questões inéditas</strong> da base de dados a cada tentativa, garantindo que você nunca faça a mesma prova duas vezes.</p>
+      <ul class="rules-list">
+        <li><strong>Feedback Imediato:</strong> Ao confirmar cada resposta, você verá na hora se acertou ou errou, além da justificativa detalhada de cada alternativa.</li>
+        <li><strong>Análise de Desempenho:</strong> Ao final, você receberá um diagnóstico completo identificando seus <strong>pontos fortes</strong> e áreas de atenção por domínio AWS.</li>
+      </ul>
+      <button id="btn-start" class="btn btn-primary">Iniciar Novo Simulado (65 Questões)</button>
+    </section>
+
+    <!-- TELA DO SIMULADO -->
+    <section id="screen-quiz" class="hide">
+      <div class="card progress-card">
+        <div class="progress-header">
+          <span id="question-counter" class="badge">Questão 1 de 65</span>
+          <span id="question-domain" class="domain-tag">Domínio</span>
+          <span id="score-live" class="score-pill">Acertos: 0</span>
+        </div>
+        <div class="progress-bar-bg">
+          <div id="progress-bar-fill" class="progress-bar-fill"></div>
+        </div>
+      </div>
+
+      <div class="card question-card">
+        <h2 id="question-text" class="question-title"></h2>
+        <p id="question-instruction" class="instruction-text"></p>
+        
+        <div id="options-container" class="options-list"></div>
+
+        <!-- ÁREA DE FEEDBACK IMEDIATO -->
+        <div id="feedback-box" class="feedback-box hide">
+          <div id="feedback-header" class="feedback-header"></div>
+          <div class="feedback-body">
+            <p class="explanation-correct"><strong>Por que está correta:</strong> <span id="explanation-correct-text"></span></p>
+            <div id="explanation-incorrect-list" class="explanation-incorrect"></div>
+          </div>
+        </div>
+
+        <div class="actions-bar">
+          <button id="btn-confirm" class="btn btn-primary" disabled>Confirmar Resposta</button>
+          <button id="btn-next" class="btn btn-success hide">Próxima Questão →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TELA DE RESULTADO FINAL -->
+    <section id="screen-result" class="card hide">
+      <h2>Relatório Final de Desempenho</h2>
+      
+      <div class="result-summary">
+        <div class="score-circle">
+          <span id="final-percentage">0%</span>
+          <small id="final-fraction">0/65 acertos</small>
+        </div>
+        <div class="result-status-info">
+          <h3 id="final-verdict"></h3>
+          <p id="final-message"></p>
+        </div>
+      </div>
+
+      <div class="domains-analysis">
+        <h3>Desempenho por Domínio (Pontos Fortes)</h3>
+        <div id="domains-breakdown" class="domains-grid"></div>
+      </div>
+
+      <div class="result-actions">
+        <button id="btn-restart" class="btn btn-primary">Fazer Nova Simulação (Sortear Novas Questões)</button>
+        <button id="btn-exit" class="btn btn-secondary">Encerrar e Voltar ao Início</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="database/questions.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
